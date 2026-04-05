@@ -23,5 +23,5 @@ print(f'{platform1}: {price1}원')
 print(f'{platform2}: {price2}원')
 print(f'{platform3}: {price3}원')
 
-print(f'총 월 구독 비용: {total_cost}원')
-print(f'월 사용 가능 금액: {available_cost}원')
+print(f'총 월 구독 비용: {total_cost}원 입니다.')
+print(f'월 사용 가능 금액: {available_cost}원 입니다.')
