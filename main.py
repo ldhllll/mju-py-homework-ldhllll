@@ -15,7 +15,7 @@ price3 = int(input(f'{platform3}의 월 구독 비용을 입력하세요: '))
 
 #4. 총 월 구독 비용, 플랫폼 월 사용 가능 금액 계산
 total_cost = price1 + price2 + price3
-avilable_cost = form_one_budget*3
+available_cost = form_one_budget*3
 
 #5. 결과 출력
 print("[구독 서비스 이용 내역]")
