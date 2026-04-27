@@ -53,6 +53,8 @@ if check1 == 'Y':
             print(f'Y와 N중 하나만 입력하세요.')
       else:
         print(f'Y와 N중 하나만 입력하세요.')
+  else:
+    print(f'관련 구독 서비스 이름을 다시 입력하세요.:')
 else:
   print(f'입력 수정 없음.')
 
