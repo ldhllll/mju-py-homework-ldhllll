@@ -61,7 +61,7 @@ print() #줄띄우기
 print('='*20)
 print(f'[{user}님의 정기 구독 이용 내역]')
 print('='*20)
-print(f'총 월 구독 비용:{total_cost}원')
+print(f'총 월 구독 비용:{total_cost:.0f}원')
 print(f'가장 비싼 구독 비용:{max(prices)}원')
 print(f'이번달 사용 가능 금액:{month_bud}원')
 
