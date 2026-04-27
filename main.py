@@ -79,7 +79,7 @@ if max(prices) > month_bud /2:
   print(f'가장 비싼 구독 서비스의 비용이 예산에 비해 큰 편입니다.')
 print('='*20)
 #6. 계산 확인
-if month_bud > 0 total_cost > 0:
+if month_bud > 0 and total_cost > 0:
   print(f'시스템 종료.')
   star = float(input(f'시스템 만족도를 입력해주세요(10점 만점):'))
 else:
