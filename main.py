@@ -29,7 +29,7 @@ check1 = input(f'혹시 구독 플랫폼 이름이나 월 구독 비용, 구독 
 if check1 == 'Y':
   name =  input(f'확인하였습니다. 관련 구독 서비스 이름이 뭐였습니까?:')
   idx = platforms.index(name)
-  if idx >= 0
+  if idx >= 0:
     check2 = input(f'구독 서비스 이름을 확인하였습니다. {name} 이름을 바꿀까요?(Y/N):')
       if check2 == 'Y':
         new_name = input(f'바꿀 이름을 입력하세요:')
