@@ -14,7 +14,11 @@ service_count = 3
 total_cost = 0
 for i in range(service_count):
   print() #줄띄우기
-  platform = input(f'{i+1}번째 구독 서비스 이름을 입력하세요:')
+  platform = input(f'{i+1}번째 구독 서비스 이름을 입력하세요(입력 중단하려면 종료를 입력):')
+  if platform == '종료'
+    print(f'구독 서비스 입력을 중단합니다.')
+    break
+
   price = int(input(f'{platform}의 월 구독 비용을 입력하세요:'))
   category = input(f'{platform}의 종류를 입력하세요(예: OTT, 공부, GPT..<숫자입력불가>):')
 
@@ -24,7 +28,7 @@ for i in range(service_count):
 
   total_cost += price
 
-#4. 리스트 수정(후 3차 과제 반복문 때 더 심화할 예정)
+#4. 리스트 수정(후 3차 과제 때 더 심화할 예정)
 check1 = input(f'혹시 구독 플랫폼 이름이나 월 구독 비용, 구독 서비스 종류를 잘못 입력하셨습니까?(Y/N):')
 if check1 == 'Y':
   name =  input(f'확인하였습니다. 관련 구독 서비스 이름이 뭐였습니까?:')
