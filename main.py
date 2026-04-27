@@ -81,5 +81,11 @@ print('='*20)
 #6. 계산 확인
 if month_bud > 0 total_cost > 0:
   print(f'시스템 종료.')
+  star = float(input(f'시스템 만족도를 입력해주세요(10점 만점):'))
 else:
   print(f'계산이 잘못되었습니다. 다시 한번 입력해주세요.')
+
+
+
+
+
