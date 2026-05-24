@@ -97,8 +97,9 @@
     
 ### **🛠️ Troubleshooting & 기술 회고:**
   1. **문제 1:** 만약 name이 리스트에 없으면 오류가 나는 문제
-     * **원인:** if platforms.index(name) >= 0 이 문이 만약 name이 리스트에 없으면 오류가 나게 된다.
-     * **해결:** 앞에 if name in platforms를 추가해 name이 platforms에 있는지 확인부터 하게 바꿨다.
+     * **원인:** 수정 전 2차 과제 코드가 if platforms.index(name) >= 0 였는데, 이 문은 만약 name이 리스트에 없으면 오류가 나게 됨.
+     * **해결:** 앞에 if name in platforms를 추가하라는 의견에 따라 name이 platforms에 있는지 확인부터 하게 바꿈.
+     * if platforms.index(name) >= 0 또한 idx = platforms.index(name)을 써서 바꿈.
      
 ### **📁 증빙 자료:**
   * [3차_AI협업캡처.pdf 첨부 완료](60251679AI3.pdf)
