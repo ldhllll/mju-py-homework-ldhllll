@@ -6,14 +6,12 @@ platforms = []
 prices = []
 categories = []
 
+sum(prices)= 0
 month_bud = 0
 total_cost = 0
 
 # 유저 정보 확인
 user = input("사용자 이름을 입력하세요:")
-
-# 유저 정보 확인
-user = input("사용자 이름을 입력하세요: ")
 
 
 # 1. 월 사용 가능 금액 입력 함수
@@ -102,21 +100,21 @@ def update_service(platforms, prices, categories):
 
 # 4. 총 월 구독 비용 계산 함수
 def total_month(prices):
-    if len(prices) == 0:
+    if sum(prices) == 0:
         print("등록된 구독 서비스가 없습니다.")
         return 0
+    else:
+        total_cost = sum(prices)
+        max_price = max(prices)
+        min_price = min(prices)
+      
+        print()
+        print("[총 월 구독 비용 계산 결과]")
+        print(f"총 월 구독 비용: {total_cost}원")
+        print(f"가장 비싼 구독 비용: {max_price}원")
+        print(f"가장 저렴한 구독 비용: {min_price}원")
 
-    total_cost = sum(prices)
-    max_price = max(prices)
-    min_price = min(prices)
-
-    print()
-    print("[총 월 구독 비용 계산 결과]")
-    print(f"총 월 구독 비용: {total_cost}원")
-    print(f"가장 비싼 구독 비용: {max_price}원")
-    print(f"가장 저렴한 구독 비용: {min_price}원")
-
-    return total_cost
+        return total_cost
 
 
 # 5. 전체 구독 서비스 조회 함수
@@ -124,11 +122,11 @@ def all_service(platforms, prices, categories):
     if len(platforms) == 0:
         print("현재 등록된 구독 서비스가 없습니다.")
         return
-
-    print()
-    print("[현재 구독 서비스 정보]")
-    for i in range(len(platforms)):
-        print(f"{i + 1}. 이름: {platforms[i]} / 월 구독 비용: {prices[i]}원 / 종류: {categories[i]}")
+    else:
+        print()
+        print("[현재 구독 서비스 정보]")
+        for i in range(len(platforms)):
+            print(f"{i + 1}. 이름: {platforms[i]} / 월 구독 비용: {prices[i]}원 / 종류: {categories[i]}")
 
 
 # 6. 예산 초과 여부 확인 함수
@@ -137,22 +135,22 @@ def bud_check(month_bud, prices):
         print("월 사용 가능 금액부터 입력하세요.")
         return
 
-    if len(prices) == 0:
+    elif len(prices) == 0:
         print("등록된 구독 서비스가 없습니다.")
         return
-
-    total = sum(prices)
-    print()
-    print("[예산 확인 결과]")
-    print(f"월 사용 가능 금액: {month_bud}원")
-    print(f"총 월 구독 비용: {total}원")
-
-    if month_bud > total:
-        print("월 구독 비용 예산은 초과되지 않았습니다.")
-    elif month_bud == total:
-        print("월 구독 비용 예산과 동일합니다. 더 이상 구독 플랫폼을 추가하면 초과합니다.")
     else:
-        print("월 구독 비용을 초과하였습니다. 구독 플랫폼을 줄이세요.")
+        total = sum(prices)
+        print()
+        print("[예산 확인 결과]")
+        print(f"월 사용 가능 금액: {month_bud}원")
+        print(f"총 월 구독 비용: {total}원")
+
+        if month_bud > total:
+            print("월 구독 비용 예산은 초과되지 않았습니다.")
+        elif month_bud == total:
+            print("월 구독 비용 예산과 동일합니다. 더 이상 구독 플랫폼을 추가하면 초과합니다.")
+        else:
+            print("월 구독 비용을 초과하였습니다. 구독 플랫폼을 줄이세요.")
 
 
 # 메뉴 출력 및 실행
@@ -180,24 +178,19 @@ while True:
 
     elif check == 3:
         update_service(platforms, prices, categories)
-
     elif check == 4:
         total_cost = total_month(prices)
-
+        print(f'총 월 구독 비용은 {total_cost}입니다.')
+        print(f'최고 구독 가격은 {max(prices)}입니다.')
+        print(f'최소 구독 가격은 {min(prices)}입니다.')
     elif check == 5:
         all_service(platforms, prices, categories)
 
     elif check == 6:
         bud_check(month_bud, prices)
-
     elif check == 7:
         print("프로그램을 종료합니다.")
         break
-
     else:
         print("잘못된 메뉴입니다. 다시 입력하세요.")
-
-
-
-
 
