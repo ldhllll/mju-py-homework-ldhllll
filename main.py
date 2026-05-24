@@ -1,15 +1,183 @@
 # 파일이름 : 나만의 정기 구독 비용 관리 시스템
 # 작 성 자 : 이다현
-#1. 사용자 정보 입력
-user = input("사용자 이름을 입력하세요:")
-month_bud = int(input(f'{user}의 이번 달 사용 가능 금액을 입력하세요: '))
 
-#2. 리스트 생성
+# 리스트 생성과 정의
 platforms = []
 prices = []
 categories = []
 
-#3. 구독 서비스 정보 입력
+month_bud = 0
+total_cost = 0
+
+# 유저 정보 확인
+user = input("사용자 이름을 입력하세요:")
+
+# 메뉴 출력 함수
+while True:
+  print() # 줄띄우기
+  print("=" * 35)
+  print("나만의 정기 구독 비용 관리 시스템")
+  print('=' * 35)
+  print("1. 월 사용 가능 금액 입력")
+  print("2. 정기 구독 서비스 추가")
+  print("3. 특정 구독 서비스 수정")
+  print("4. 총 월 구독 비용 계산")
+  print("5. 전체 구독 서비스 조회")
+  print("6. 예산 초과 여부 확인")
+  print("7. 종료")
+  print("=" * 35)
+  check= int(input('{user}가 원하는 메뉴를 입력하세요(숫자입력): '))
+  if check == 7:
+    break
+#<함수 정의>
+#1. 월 사용 가능 금액 입력 함수
+def input_budget():
+    global month_bud
+    month_bud = int(input("플랫폼 하나당 월 사용 가능 금액을 입력하세요: "))
+    print("월 사용 가능 금액이 입력되었습니다.")
+
+#2. 정기 구독 서비스 추가 함수
+def add_service(platforms, prices, categories):
+      platform = input("구독 플랫폼 이름을 입력하세요: ")
+      price = int(input(f"{platform}의 월 구독 비용을 입력하세요: "))
+      category = input(f"{platform}의 종류를 입력하세요(예: OTT, 공부, GPT): ")
+      platforms.append(platform)
+      prices.append(price)
+      categories.append(category)
+      print("구독 서비스가 추가되었습니다.")
+  
+#3. 특정 구독 서비스 수정 함수
+def update_service(platforms, prices, categories):
+      if len(platforms) == 0:
+        print("수정할 구독 서비스가 없습니다.")
+        return
+        
+      else:
+        modify = int(input('구독 플랫폼 이름을 수정하고 싶으시면 1, 구독 서비스 종류는 2, 월 구독 비용 수정은 3을 눌러주세요: '))
+        if modify == 1:
+           name = input("확인하였습니다. 관련 구독 서비스 이름이 무엇입니까?: ")
+           if name in platforms:
+            idx = platforms.index(name)
+            print()
+            print("[현재 구독 서비스 정보]")
+            print("이름:", platforms[idx])
+            new_name = input('이름을 어떻게 바꿀까요?: ')
+            platforms.insert(idx, new_name)
+            platforms.remove(name)
+            print('이름을 바꿨습니다.')
+            return
+             
+           else:
+             print(f'{name}이 존재하지 않습니다.')
+             return
+             
+        if modify == 2:
+           name = input("확인하였습니다. 관련 구독 서비스 이름이 무엇입니까?: ")
+           idx = platforms.index(name)
+           print()
+           print("[현재 구독 서비스 정보]")
+           print(f'구독 서비스 종류: {categories[idx]}')
+           new_category = input('종류를 어떻게 바꿀까요?: ')
+           categories.remove(categories[idx])
+           categories.insert(idx, new_category)
+           print('종류를 바꿨습니다.')
+           return
+          
+        if modify == 3:
+           name = input("확인하였습니다. 관련 구독 서비스 이름이 무엇입니까?: ")
+           idx = platforms.index(name)
+           print()
+           print("[현재 구독 서비스 정보]")
+           print(f'구독 서비스 월 가격: {prices[idx]}')
+           new_price = int(input('월 구독 가격을 어떻게 바꿀까요?: '))
+           prices.remove(prices[idx])
+           prices.insert(idx, new_price)
+           print('가격을 바꿨습니다.')
+           return
+          
+
+#4. 총 월 구독 비용 계산 함수
+def total_month(prices):
+  total_month = sum(prices)
+  print(f'총 월 구독 비용은 {total_month}입니다.')
+
+#5. 전체 구독 서비스 조회 함수
+def update_service(platforms, prices, categories):
+#6. 예산 초과 여부 확인 함수
+
+
+
+# 월 사용 가능 금액 입력 실행
+  if check == 1:
+    input_budget()
+    
+# 정기 구독 서비스 추가 함수 실행
+  if check == 2:
+    add_service(platforms, prices, categories):
+    
+# 특정 구독 서비스 수정 함수 실행
+  if check == 3:
+    update_service(platforms, prices, categories):
+      
+
+  if name in platform_list:
+    idx = platform_list.index(name)
+    print()
+    print("[현재 구독 서비스 정보]")
+    print("이름:", platform_list[idx])
+    print("월 구독 비용:", price_list[idx], "원")
+    print("종류:", category_list[idx])
+
+check2 = input(f"구독 서비스 이름을 확인하였습니다. {name} 이름을 바꿀까요?(Y/N): ")
+
+    if check2 == "Y":
+      new_name = input("바꿀 이름을 입력하세요: ")
+      platform_list[idx] = new_name
+      print("구독 서비스 이름이 수정되었습니다.")
+
+    elif check2 == "N":
+      print("구독 서비스 이름은 수정하지 않습니다.")
+
+    else:
+      print("Y와 N 중 하나만 입력하세요.")
+
+      check3 = input("관련 구독 서비스의 월 구독 비용을 바꿀까요?(Y/N): ")
+
+            if check3 == "Y":
+                new_price = int(input("바꿀 구독 비용을 입력하세요: "))
+                price_list[idx] = new_price
+                print("월 구독 비용이 수정되었습니다.")
+
+            elif check3 == "N":
+                print("월 구독 비용은 수정하지 않습니다.")
+
+            else:
+                print("Y와 N 중 하나만 입력하세요.")
+
+            check4 = input("관련 구독 서비스의 종류를 바꿀까요?(Y/N): ")
+
+            if check4 == "Y":
+                new_category = input("바꿀 구독 서비스의 종류를 입력하세요: ")
+                category_list[idx] = new_category
+                print("구독 서비스 종류가 수정되었습니다.")
+
+            elif check4 == "N":
+                print("구독 서비스 종류는 수정하지 않습니다.")
+
+            else:
+                print("Y와 N 중 하나만 입력하세요.")
+
+        else:
+            print("관련 구독 서비스 이름을 다시 입력하세요.")
+
+    elif check1 == "N":
+        print("입력 수정 없음.")
+
+    else:
+        print("Y와 N 중 하나만 입력하세요.")
+
+
+# 구독 서비스 정보 입력
 service_count = 3
 total_cost = 0
 for i in range(service_count):
