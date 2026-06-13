@@ -97,7 +97,7 @@ def total_month():
         print("등록된 구독 서비스가 없습니다.")
         return 0
  
-    # 이중 리스트에서 각 항목의 인덱스 1(가격)만 꺼내어 합산
+    # 이중 리스트에서 각 항목의 가격만 꺼내어 합산
     prices = [item[1] for item in data]
     total_cost = sum(prices)
     max_price = max(prices)
@@ -112,7 +112,7 @@ def total_month():
     return total_cost
  
  
-# 5. 전체 구독 서비스 조회 함수 (이중 순회 사용)
+# 5. 전체 구독 서비스 조회 함수
 def all_service():
     if len(data) == 0:
         print("현재 등록된 구독 서비스가 없습니다.")
@@ -183,7 +183,7 @@ def delete_service():
     print(f"'{name}'이(가) 존재하지 않습니다.")
  
  
-# 8. 파일 저장 함수 (Write) - 종료 시 data를 CSV 파일로 저장
+# 8. 파일 저장 함수 - 종료 시 data를 CSV 파일로 저장
 def save_to_file():
     with open("구독목록.csv", "w", encoding="utf-8") as f:
         f.write("플랫폼 이름,월 구독 비용,종류\n")
